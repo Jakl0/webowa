@@ -1,0 +1,29 @@
+* {
+  margin :10px;
+}
+.Baner{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.Baner *{
+  margin:5px;
+}
+.Atributes{
+  
+  width:90%;
+}
+.Ogloszenie{
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #cccccc;
+  border-radius: 20px;
+}
+
+.bottomPart{
+  display: flex;
+  justify-content: space-between;
+}
