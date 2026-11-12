@@ -7,10 +7,11 @@ import LoginForm from './components/LoginForm.jsx'
 import SerwisOgloszeniowy from './components/SerwisOgloszeniowy.jsx'
 import 'bootstrap/dist/css/bootstrap.css';
 import Heading from './components/Baner.jsx'
+import FormularzOgloszenia from './components/FormularzOgloszenia.jsx'
 
 function App() {
-  const [stanAplikacji,setStan] = useState('');
-  const [Zalogowany , setLogowanie] = useState(true);
+  const [stanAplikacji,setStan] = useState("poczatek");
+  const [Zalogowany , setLogowanie] = useState(false);
 
   const [tablicaOgloszen , setTablica] = useState([
     {
@@ -52,16 +53,16 @@ function App() {
 
   return (
     <>
-      <Heading Zalogowany={Zalogowany} Wyloguj={() => Wylogowanie()} Zaloguj={()=> setStan("login")} />
+      <Heading Zalogowany={Zalogowany} Wyloguj={() => Wylogowanie()} Ogloszenie={()=> setStan("DodanieOgloszenia")} />
       
 
-      {stanAplikacji === "login" && <LoginForm onLogin={() => Logowanie()} /> }
+      {stanAplikacji === "login" && <LoginForm onLogin={() => Logowanie()}  /> }
 
       {stanAplikacji === "ogloszenia" && <SerwisOgloszeniowy lista={tablicaOgloszen}/>}
 
-      {stanAplikacji === "DodanieOgloszenia"}
+      {stanAplikacji === "DodanieOgloszenia" && <FormularzOgloszenia DodajOgloszenie={()=> setStan("ogloszenia")} /> }
 
-      
+      {stanAplikacji === "poczatek" && <button className="btn btn-primary" onClick={() => setStan("login")} >Zaloguj</button>}      
       
       
     </>
