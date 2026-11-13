@@ -51,6 +51,13 @@ function App() {
 
   }
 
+  function DodajOgloszenie(noweOgloszenie){
+    setStan("ogloszenia");
+    setTablica([...tablicaOgloszen , noweOgloszenie])
+    console.log(tablicaOgloszen)
+  }
+
+
   return (
     <>
       <Heading Zalogowany={Zalogowany} Wyloguj={() => Wylogowanie()} Ogloszenie={()=> setStan("DodanieOgloszenia")} />
@@ -60,7 +67,7 @@ function App() {
 
       {stanAplikacji === "ogloszenia" && <SerwisOgloszeniowy lista={tablicaOgloszen}/>}
 
-      {stanAplikacji === "DodanieOgloszenia" && <FormularzOgloszenia DodajOgloszenie={()=> setStan("ogloszenia")} /> }
+      {stanAplikacji === "DodanieOgloszenia" && <FormularzOgloszenia DodajOgloszenie={DodajOgloszenie} /> }
 
       {stanAplikacji === "poczatek" && <button className="btn btn-primary" onClick={() => setStan("login")} >Zaloguj</button>}      
       
